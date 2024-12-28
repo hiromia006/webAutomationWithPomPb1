@@ -25,4 +25,30 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(homePage.hasLogoutLink());
     }
+
+    @Test
+    public void logiShouldFailWithoutUsername() {
+        CustomerLoginPage loginPage = page.getInstance(CustomerLoginPage.class);
+        loginPage = loginPage
+                .fillPassword("sqa")
+                .clickLoginBtnForFail();
+        Assert.assertTrue(loginPage.hasError());
+    }
+
+    @Test
+    public void logiShouldFailWithoutPassword() {
+        CustomerLoginPage loginPage = page.getInstance(CustomerLoginPage.class);
+        loginPage = loginPage
+                .fillUsername("sqa")
+                .clickLoginBtnForFail();
+        Assert.assertTrue(loginPage.hasError());
+    }
+
+    @Test
+    public void logiShouldFailWithoutBoth() {
+        CustomerLoginPage loginPage = page.getInstance(CustomerLoginPage.class);
+        loginPage = loginPage
+                .clickLoginBtnForFail();
+        Assert.assertTrue(loginPage.hasError());
+    }
 }

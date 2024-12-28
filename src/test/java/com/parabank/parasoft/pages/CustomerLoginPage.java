@@ -28,12 +28,21 @@ public class CustomerLoginPage extends BasePage {
         return getInstance(HomePage.class);
     }
 
+    public CustomerLoginPage clickLoginBtnForFail() {
+        geWebElement(loginBtn).click();
+        return this;
+    }
+
     public boolean hasLoginBtn() {
         return geWebElements(loginBtn).size() > 0;
     }
 
+    public boolean hasError() {
+        return geWebElements(By.cssSelector(".error")).size() > 0;
+    }
+
     public RegisterPage clickRegisterLink() {
-        By reg=By.cssSelector("a[href='register.htm']");
+        By reg = By.cssSelector("a[href='register.htm']");
         setWait(reg);
         geWebElement(reg).click();
         setWait(By.cssSelector("input[value='Register']"));

@@ -13,4 +13,13 @@ public class RegisterPage extends BasePage {
     public boolean hasRegister() {
         return geWebElements(btn).size() > 0;
     }
+
+    public RegisterPage clickRegisterBtn() {
+        geWebElement(btn).click();
+        return this;
+    }
+
+    public boolean hasAllFieldError() {
+        return geWebElements(By.className("error")).size() == 8;
+    }
 }
