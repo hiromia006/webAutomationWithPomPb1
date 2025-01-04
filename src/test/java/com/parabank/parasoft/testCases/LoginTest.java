@@ -17,12 +17,18 @@ public class LoginTest extends BaseTest {
     public void doLoginShouldSucceed() {
         CustomerLoginPage loginPage = page.getInstance(CustomerLoginPage.class);
         loginPage = loginPage
-                .fillUsername("sqa")
-                .fillPassword("sqa");
+                .fillUsername(getUsername())
+                .fillPassword(getPassword());
 
         HomePage homePage = loginPage
                 .clickLoginBtn();
+        Assert.assertTrue(homePage.hasLogoutLink());
+    }
 
+    public void doLoginShouldSucceed2() {
+        CustomerLoginPage loginPage = page.getInstance(CustomerLoginPage.class);
+        HomePage homePage = loginPage
+                .doLogin(getUsername(), getPassword());
         Assert.assertTrue(homePage.hasLogoutLink());
     }
 
@@ -30,7 +36,7 @@ public class LoginTest extends BaseTest {
     public void logiShouldFailWithoutUsername() {
         CustomerLoginPage loginPage = page.getInstance(CustomerLoginPage.class);
         loginPage = loginPage
-                .fillPassword("sqa")
+                .fillPassword(getPassword())
                 .clickLoginBtnForFail();
         Assert.assertTrue(loginPage.hasError());
     }
@@ -39,7 +45,7 @@ public class LoginTest extends BaseTest {
     public void logiShouldFailWithoutPassword() {
         CustomerLoginPage loginPage = page.getInstance(CustomerLoginPage.class);
         loginPage = loginPage
-                .fillUsername("sqa")
+                .fillUsername(getUsername())
                 .clickLoginBtnForFail();
         Assert.assertTrue(loginPage.hasError());
     }

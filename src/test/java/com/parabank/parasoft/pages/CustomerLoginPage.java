@@ -53,4 +53,10 @@ public class CustomerLoginPage extends BasePage {
         geWebElement(By.cssSelector("a[href='lookup.htm']")).click();
         return getInstance(ForgotLoginInfoPage.class);
     }
+
+    public HomePage doLogin(String username, String password) {
+        return fillUsername(username)
+                .fillPassword(password)
+                .clickLoginBtn();
+    }
 }
