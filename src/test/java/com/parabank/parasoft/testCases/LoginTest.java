@@ -2,6 +2,7 @@ package com.parabank.parasoft.testCases;
 
 import com.parabank.parasoft.pages.CustomerLoginPage;
 import com.parabank.parasoft.pages.HomePage;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -57,4 +58,5 @@ public class LoginTest extends BaseTest {
                 .clickLoginBtnForFail();
         Assert.assertTrue(loginPage.hasError());
     }
+
 }
