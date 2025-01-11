@@ -15,7 +15,7 @@ public class BasePage extends Page {
     }
 
     @Override
-    public WebElement geWebElement(By locator) {
+    public WebElement getWebElement(By locator) {
         WebElement element = null;
         try {
             addInfo("Selenium Webdriver going to find a WebElement with " + locator + " Locator");
@@ -44,19 +44,19 @@ public class BasePage extends Page {
     @Override
     public void clickElement(By locator) {
         addInfo("Click operation going on");
-        geWebElement(locator).click();
+        getWebElement(locator).click();
     }
 
     @Override
     public void setWait(By locator) {
         addInfo("Set Wait for Web Element visibility");
-        wait.until(ExpectedConditions.visibilityOf(geWebElement(locator)));
+        wait.until(ExpectedConditions.visibilityOf(getWebElement(locator)));
 
     }
 
     @Override
     public String getText(By locator) {
-        return geWebElement(locator).getText().trim();
+        return getWebElement(locator).getText().trim();
     }
 
     public void addInfo(String message) {

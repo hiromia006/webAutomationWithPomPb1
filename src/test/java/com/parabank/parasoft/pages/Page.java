@@ -19,7 +19,7 @@ public abstract class Page {
         wait = new WebDriverWait(driver, Duration.ofSeconds(ParaBankUtil.WAIT_TIME));
     }
 
-    public abstract WebElement geWebElement(By locator);
+    public abstract WebElement getWebElement(By locator);
 
     public abstract List<WebElement> geWebElements(By locator);
 
