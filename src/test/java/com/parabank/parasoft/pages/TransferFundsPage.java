@@ -21,6 +21,6 @@ public class TransferFundsPage extends BasePage {
 
     public TransferCompletePage clickTransferBtn() {
         clickElement(By.cssSelector("input[value='Transfer']"));
-        getInstance(TransferCompletePage.class);
+       return getInstance(TransferCompletePage.class);
     }
 }
